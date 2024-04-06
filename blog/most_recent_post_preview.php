@@ -8,6 +8,6 @@
     <div class="most-recent__elements-footer">
         <img src="<?= $most_recent_post['author_avatar'] ?>" class="elements-footer__avatar">
         <h2 class="elements-footer__author"><?= $most_recent_post['author'] ?></h2>
-        <a class="elements-footer__date"><?= $most_recent_post['date'] ?></a>
+        <h3 class="elements-footer__date"><?= $most_recent_post['date'] ?></h3>
     </div>
 </div>
