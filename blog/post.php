@@ -1,3 +1,14 @@
+<?php
+  include 'posts.php';
+  $postId = (int) $_GET['id'];
+  $index = array_search($postId, array_column($POSTS, 'id'));
+  if ($index === false){
+    header("HTTP/1.1 404 Not Found");
+    die();
+  }
+  $CURRENT_POST = $POSTS[$index];
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

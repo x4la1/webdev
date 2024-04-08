@@ -1,5 +1,5 @@
 <?php
-$featured_posts =[
+$posts =[
     [
         'id' => 1,
         'title' => 'The Road Ahead',
@@ -8,6 +8,8 @@ $featured_posts =[
         'author_avatar' => './static/images/matvogels.jpg',
         'author' => 'Mat Vogels',
         'date' => 'September 25, 2015',
+        'featured' => 1,
+
     ],
     [
         'id' => 2,
@@ -17,63 +19,67 @@ $featured_posts =[
         'author_avatar' => './static/images/williamwong.jpg',
         'author' => 'William Wong',
         'date' => 'September 25, 2015',
-    ]
-
-];
-$most_recent_posts = [
+        'featured' => 1,
+    ],
     [
-        'id' => 1,
+        'id' => 3,
         'image_url' => './static/images/stillstanding.jpg', 
         'title' => 'Still Standing Tall',
         'subtitle' => 'Life begins at the end of your comfort zone.',
         'author_avatar' => './static/images/williamwong.jpg',
         'author' => 'William Wong',
-        'date' => '9/25/2015'
+        'date' => '9/25/2015',
+        'featured' => 0,
     ],
     [
-        'id' => 2,
+        'id' => 4,
         'image_url' => './static/images/sunny sideup.jpg', 
         'title' => 'Sunny Side Up',
         'subtitle' => 'No place is ever as bad as they tell you its going to be.',
         'author_avatar' => './static/images/matvogels.jpg',
         'author' => 'Mat Vogels',
-        'date' => '9/25/2015'
+        'date' => '9/25/2015',
+        'featured' => 0,
     ],
     [
-        'id' => 3,
+        'id' => 5,
         'image_url' => './static/images/waterfalls.jpg', 
         'title' => 'Water Falls',
         'subtitle' => 'We travel not to escape life, but for life not to escape us.',
         'author_avatar' => './static/images/matvogels.jpg',
         'author' => 'Mat Vogels',
-        'date' => '9/25/2015'
+        'date' => '9/25/2015',
+        'featured' => 0,
     ],
     [
-        'id' => 4,
+        'id' => 6,
         'image_url' => './static/images/through the mist.jpg', 
         'title' => 'Through the Mist',
         'subtitle' => 'Travel makes you see what a tiny place you occupy in the world.',
         'author_avatar' => './static/images/williamwong.jpg',
         'author' => 'William Wong',
-        'date' => '9/25/2015'
+        'date' => '9/25/2015',
+        'featured' => 0,
     ],
     [
-        'id' => 5,
+        'id' => 7,
         'image_url' => './static/images/awaken early.jpg', 
         'title' => 'Awaken Early',
         'subtitle' => 'Not all those who wander are lost.',
         'author_avatar' => './static/images/matvogels.jpg',
         'author' => 'Mat Vogels',
-        'date' => '9/25/2015'
+        'date' => '9/25/2015',
+        'featured' => 0,
     ],
     [
-        'id' => 6,
+        'id' => 8,
         'image_url' => './static/images/try it always.jpg', 
         'title' => 'Try it Always',
         'subtitle' => 'The world is a book, and those who do not travel read only one page.',
         'author_avatar' => './static/images/matvogels.jpg',
         'author' => 'Mat Vogels',
-        'date' => '9/25/2015'
+        'date' => '9/25/2015',
+        'featured' => 0,
     ],
 ];
 ?>
@@ -128,8 +134,11 @@ $most_recent_posts = [
             </div>
             <div class="featured-posts__elements">
                 <?php 
-                    foreach ($featured_posts as $featured_post) {
-                        include 'featured_post_preview.php';
+                    foreach ($posts as $post) {
+                        if ($post['featured'] == 1)
+                        {
+                            include 'featured_post_preview.php';
+                        }
                     }
                 ?> 
             </div>
@@ -141,7 +150,8 @@ $most_recent_posts = [
             </div>
             <div class="most-recent__elements">
                 <?php 
-                    foreach ($most_recent_posts as $most_recent_post) {
+                    foreach ($posts as $post) {
+                        if ($post['featured'] == 0)
                         include 'most_recent_post_preview.php';
                     }
                 ?>

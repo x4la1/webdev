@@ -2,6 +2,10 @@
     box-sizing: border-box; 
     margin: auto;
 }
+.url{
+    margin: 0;
+    text-decoration: none;
+}
 body{
     background-color: #F7F7F7;
     font-weight: 400;
