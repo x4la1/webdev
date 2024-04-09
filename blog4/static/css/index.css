@@ -1,0 +1,353 @@
+*{
+    box-sizing: border-box; 
+    margin: auto;
+}
+.url{
+    margin: 0;
+    text-decoration: none;
+}
+body{
+    background-color: #F7F7F7;
+    font-weight: 400;
+}
+.most-recent__url{
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
+.bighead{
+    height: 500px;
+    width: 1440px;
+    background-image: url("/static/images/indexheaderimage.jpg");
+    background-size: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.header{
+    width: 1440px;
+    display: inline-flex;
+    height: 74px;
+    padding: 17px 250px;
+    margin-bottom: 110px;
+}
+.header__leftside{
+    width: 564px;
+    margin-left: 0px;
+    font-size: 26px;
+    padding-top: 10px;
+    font-family: "Lora";
+    color: #FFFFFF;
+}
+.header__rightside{
+    padding-top: 12px;
+    display: flex;
+    color: #FFFFFF;
+    width: 376px;
+    font-family: "Oxygen";
+    font-size: 12px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.headtitle{
+    display: flex;
+    width: 1440px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.headtitle__title{
+    line-height: 51px;
+    letter-spacing: 2px;
+    font-family: "Lora";
+    font-size: 50px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+.headtitle__subtitle{
+    width: 504px;
+    font-family: "Oxygen";
+    font-size: 17px;
+    color: #FFFFFF;
+    opacity: 0.63;
+    line-height: 20px;
+    margin-bottom: 35px;
+}
+.headtitle__button{
+    background-color: #DD783F;
+    width: 167px;
+    height: 44px;
+    padding: 12px 31px;
+    border-radius: 3px; 
+}
+.headtitile__button-text{
+    font-family: "Oxygen";
+    font-size: 13px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+.topics{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    max-height: 65px;
+    font-family: "Lora";
+    font-size: 14px;
+    padding: 23px 286px;
+    color: #768088;
+    margin-bottom: 60px;
+    gap: 92px;
+    background-color: #FFFFFF;
+}
+.featured-posts{
+    margin: auto;
+    max-width: 960px;
+    max-height: 414px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.featured-posts__title{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 44px;
+    margin-bottom: 20px;
+}
+.featured-posts__title-text{
+    font-family: "Oxygen";
+    color: #2E2E2E;
+    font-size: 20px;
+    padding-bottom: 17px;
+}
+.featured-posts__title-line{
+    height: 1px;
+    width: 188px;
+    background-color: #DEDEDE
+}
+.featured-posts__elements{
+    position: relative;
+    width: 960px;
+    height: 294px;
+    display: inline-flex;
+}
+.featured-posts__element{
+    position: relative;
+    margin: 0;
+    color: #FFFFFF;
+    width: 460px;
+    height: 280px;
+    gap: 10px;
+    align-items: flex-start;
+}
+.featured-post__text{
+    padding-left: 20px;
+    top: 157px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+.featured-post__image{
+    border-radius: 5px;
+}
+.featured-post__text_lora{
+    color: #FFFFFF;
+    margin: 0;
+    font-family: "Lora";
+    font-size: 27px;
+    font-weight: 400;
+}
+.featured-post__text_oxygen{
+    color: #FFFFFF;
+    margin: 0;
+    font-weight: 400;
+    font-family: "Oxygen";
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 70%;
+}
+.featured-post__footer{
+    color: #FFFFFF;
+    margin: 0;
+    display: inline-flex;
+    opacity: 70%;
+}
+.featured-post__footer-avatar{
+    border-radius: 50%;
+    opacity: 100%;
+}
+.featured-post__footer-author{
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 82px;
+    font-family: "Oxygen";
+    font-size: 12px;
+}
+.featured-post__footer-date{
+    padding-top: 5px;
+    font-family: "Oxygen";
+    font-size: 12px;
+    padding-left: 200px;
+}
+.most-recent{
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 940px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 93px;
+}
+.most-recent__title{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 44px;
+    margin-bottom: 20px;
+}
+.most-recent__title-text{
+    font-family: "Oxygen";
+    font-size: 20px;
+    padding-bottom: 17px;
+    color: #2E2E2E;
+}
+.most-recent__titleline{
+    height: 1px;
+    width: 188px;
+    background-color: #DEDEDE
+}
+.most-recent__elements{
+    max-width: 960px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.most-recent__elem1{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+}
+.most-recent__elem2{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+}
+.most-recent__elem3{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+}
+.most-recent__elem4{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+}
+.most-recent__elem5{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+}
+.most-recent__elem6{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+}
+.most-recent__elements-text{
+    width: 296px;
+    height: 93px;
+    display: flex;
+    flex-direction: column;
+}
+.most-recent__elements-text__lora{
+    margin: 0;
+    color: #101315;
+    font-size: 16px;
+    font-family: "Lora";
+    margin-left: 13px;
+    margin-top: 14px;
+}
+.most-recent__elements-text__oxygen{
+    margin: 0;
+    font-family: "Oxygen";
+    font-size: 13px;
+    color: #7A7A7A;
+    margin-left: 13px;
+    margin-top: 7px;
+    max-width: 270px;
+}
+.most-recent__line{
+    height: 1px;
+    width: 296px;
+    background-color: #EFEFEF;
+}
+.most-recent__elements-footer{
+    height: 48px;
+    display: inline-flex;
+    margin: 0;
+    background-color: #FCFCFC;
+    padding-left: 13px;
+    align-items: center;
+}
+.elements-footer__avatar{
+    margin: 0;
+    border-radius: 50%;
+    margin-right: 11px;
+}
+.elements-footer__author{
+    margin-left: 0;
+    font-family: "Oxygen";
+    font-size: 11px;
+    color: #999999;
+}
+.elements-footer__date{
+    font-family: "Oxygen";
+    color: #999999;
+    font-size: 12px;
+    margin-right: 13px;
+}
+.final-footer{
+    width: 1440px;
+    height: 89px;
+    background-image: url("/static/images/footer.jpg");
+    background-color: #4D565D;
+    background-position: 1%;
+    display: flex;
+    height: 89px;
+    padding: 17px 250px;
+    
+}
+.final-footer__leftside{
+    padding-top: 23px;
+    width: 564px;
+    margin-left: 0px;
+    font-size: 26px;
+    font-family: "Lora";
+    color: #FFFFFF;
+}
+.final-footer__rightside{
+    padding-top: 12px;
+    display: flex;
+    color: #FFFFFF;
+    opacity: 60%;
+    width: 376px;
+    font-family: "Oxygen";
+    font-size: 11px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

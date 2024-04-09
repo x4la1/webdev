@@ -15,10 +15,4 @@ $POSTS = [
         ],
 
     ],
-	[
-		'id' => 2,
-		'title' => 'From Top Down',
-		'subtitle' => 'Once a year, go someplace you’ve never been before.',
-		
-	]
 ];
