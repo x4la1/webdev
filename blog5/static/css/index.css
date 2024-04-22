@@ -154,7 +154,9 @@ body{
     align-items: flex-start;
 }
 .featured-post__image{
-    border-radius: 5px;
+    width: 460px;
+    height: 280px ;
+    
 }
 .featured-post__text_lora{
     color: #FFFFFF;

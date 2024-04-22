@@ -153,9 +153,7 @@ body{
     gap: 10px;
     align-items: flex-start;
 }
-.featured-post__image{
-    border-radius: 5px;
-}
+
 .featured-post__text_lora{
     color: #FFFFFF;
     margin: 0;

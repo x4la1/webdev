@@ -6,9 +6,9 @@
     </div>
     <div class="most-recent__line"></div>
     <div class="most-recent__elements-footer">
-        <img src="<?= $post['author_avatar'] ?>" class="elements-footer__avatar">
+        <img src="<?= $post['author_url'] ?>" class="elements-footer__avatar">
         <h2 class="elements-footer__author"><?= $post['author'] ?></h2>
-        <h3 class="elements-footer__date"><?= $post['date'] ?></h3>
+        <h3 class="elements-footer__date"><?= $post['publishdate'] ?></h3>
     </div>
 </div>
 
