@@ -181,26 +181,33 @@ document.addEventListener("DOMContentLoaded", () => {
         const smallImageError = document.querySelector('.small-hero-image-input__field-error');
         const contentError = document.querySelector('.content-input__field-error');
         const contentTextArea = document.querySelector('.content-input__input-field')
-    
+        
+        
     
         if (postData.title == '') {
             foundError = true;
             titleError.style.display = 'flex';
+            titleInput.style.borderBottomColor = "#E86961";
         }else{
             titleError.style.display = 'none';
+            titleInput.style.borderBottomColor = "#EAEAEA"
         }
     
         if (postData.subtitle == '') {
             foundError = true;
             subtitleError.style.display = 'flex';
+            subtitleInput.style.borderBottomColor = "#E86961"
         }else{
             subtitleError.style.display = 'none';
+            subtitleInput.style.borderBottomColor = "#EAEAEA"
         }
     
         if (postData.authorName == '') {
             foundError = true;
             authorNameError.style.display = 'flex';
+            authorNameInput.style.borderBottomColor = "#E86961"
         }else{
+            authorNameInput.style.borderBottomColor = "#EAEAEA"
             authorNameError.style.display = 'none';
         }
     
@@ -214,8 +221,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (postData.publishDate == ''){
             foundError = true;
             publishDateError.style.display = 'flex';
+            publishDateInput.style.borderBottomColor = "#E86961"
         }else{
             publishDateError.style.display = 'none';
+            publishDateInput.style.borderBottomColor = "#EAEAEA"
         }
     
         if (postData.bigImage == ''){
@@ -258,12 +267,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-
-    const button = document.querySelector('.title__button');
-
-    button.addEventListener('click', () => {
-        button.style.transform = 'scale(0.87)';
-    })
 
     
 })

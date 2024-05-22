@@ -112,9 +112,11 @@ body {
     opacity: 80%;
 }
 
-.title__button:focus {
-    border: 2px solid #DD783F66;
-    border-radius: 3px;
+.title__button:active{
+    scale: 0.87;
+}
+.title__button:not(:active){
+    scale: 1;
 }
 
 .main-info {
