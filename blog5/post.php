@@ -1,5 +1,4 @@
 <?php
-//   include 'posts.php';
 
 const HOST = 'localhost';
 const USERNAME = 'x4la';
@@ -42,18 +41,16 @@ function getAndPrintpostsFromDB(mysqli $conn): array
     return $posts;
 }
 
-
-
 $conn = createDBConnection();
 $posts = getAndPrintpostsFromDB($conn);
 closeDBConnection($conn);
 
 $postId = (int)$_GET['id'];
-if ($postId == 0) {
+if ($postId == 0 || count($posts) < $postId) {
     echo 'Wrond post ID!';
     die();
 }
-// echo $postId;  
+
 $index = array_search($postId, array_column($posts, 'id'));
 if ($index === false) {
     header("HTTP/1.1 404 Not Found");
@@ -105,7 +102,7 @@ $current_post = $posts[$index];
                 if (count($current_post['content']) != 0) {
                     $current_post['content'][0];
                 }
-                for ($i = 1; $i < count($current_post['content']); $i++) {
+                for ($i = 0; $i < count($current_post['content']); $i++) {
                     echo '<br>';
                     echo '<br>';
                     echo $current_post['content'][$i];

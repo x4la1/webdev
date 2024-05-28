@@ -1,4 +1,15 @@
 <?php
+function authBySession()
+{
+    session_name('auth');
+    session_start();
+    if (is_null($_SESSION['auth'])) {
+        header('HTTP/1.1 401 Unauthorized');
+        die();
+    }
+}
+
+authBySession();
 
 function saveImage(string $imageBase64): string
 {
@@ -40,19 +51,17 @@ const DATABASE = 'blog';
 
 
 
-//TODO dodelatb
-
-
 function savePostInDB(mysqli $conn): void
 {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $dataAsJson = file_get_contents("php://input");
         $dataAsArray = json_decode($dataAsJson, true);
+        var_dump($dataAsArray);
         $img_url = saveImage($dataAsArray['image']);
         $img_url = './' . $img_url;
     }
     $statement = $conn->prepare("INSERT INTO post (title, subtitle, content, author, author_url, publishdate, image_url, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $statement->bind_param("sssssssi", $_POST['title'], $_POST['subtitle'], $_POST['content'], $_POST['author'], $_POST['author_url'], $_POST['publishdate'], $img_url, $_POST['featured']);
+    $statement->bind_param("sssssssi", $dataAsArray['title'], $dataAsArray['subtitle'], json_encode($dataAsArray['content']), $dataAsArray['author'], $dataAsArray['author_url'], $dataAsArray['publishdate'], $img_url, $dataAsArray['featured']);
     $statement->execute();
     if ($statement->affected_rows > 0) {
         echo "New record created successfully";
@@ -60,7 +69,6 @@ function savePostInDB(mysqli $conn): void
         echo "Error: " . "<br>" . $conn->error;
     }
     closeDBConnection($conn);
-
 }
 
 

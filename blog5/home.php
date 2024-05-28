@@ -13,8 +13,6 @@ function createDBConnection(): mysqli
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
-    echo "Connected successfully<br>";
     return $conn;
 }
 
@@ -44,7 +42,6 @@ function getPostsFromDB(mysqli $conn): array
 
 $conn = createDBConnection();
 $posts = getPostsFromDB($conn);
-var_dump($posts);
 closeDBConnection($conn);
 
 

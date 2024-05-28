@@ -40,7 +40,6 @@ body {
     background-color: transparent;
     border: 0;
     color: #000;
-    cursor: pointer;
 }
 
 .main-header__avatar {
@@ -112,10 +111,11 @@ body {
     opacity: 80%;
 }
 
-.title__button:active{
+.title__button:active {
     scale: 0.87;
 }
-.title__button:not(:active){
+
+.title__button:not(:active) {
     scale: 1;
 }
 

@@ -1,22 +1,57 @@
+<?php
+const HOST = 'localhost';
+const USERNAME = 'x4la';
+const PASSWORD = 's1230400102s';
+const DATABASE = 'blog';
+
+function authBySession()
+{
+    session_name('auth');
+    session_start();
+    if (!(array_key_exists('user_id', $_SESSION))) {
+        header('HTTP/1.1 401 Unauthorized');
+        die();
+    }
+}
+authBySession();
+
+function createDBConnection(): mysqli
+{
+    $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    return $conn;
+}
+
+function closeDBConnection(mysqli $conn): void
+{
+    $conn->close();
+}
+
+function getUserEmailById(mysqli $conn, int $id): string
+{
+    $query = "SELECT email FROM user WHERE user_id = '$id'";
+    $result = $conn->query($query);
+    $result->num_rows;
+    $row = $result->fetch_assoc();
+    $email = $row['email'];
+    return $email;
+}
+$conn = createDBConnection();
+$email = getUserEmailById($conn, $_SESSION['user_id']);
+closeDBConnection($conn);
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/static/css/admin_panel.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/lora');
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: 400;
-        }
     </style>
 
 
@@ -29,10 +64,10 @@
         </div>
         <div class="main-header__rightside">
             <div class="main-header__avatar">
-                <p class="avatar__letter">N</p>
+                <p class="avatar__letter"><?= strtoupper($email[0]) ?></p>
             </div>
-            <button class="main-header__logout-button" title="Log out">
-                <img src="/Static/Images/log-out.svg" alt="">
+            <button type="submit" id="logout-button" class="main-header__logout-button">
+                <img src="/Static/Images/log-out.svg" class="" alt="">
             </button>
         </div>
     </header>
@@ -70,8 +105,7 @@
             </div>
             <div class="default-input postform__description-input">
                 <label for="description" class="input-text-oxygen">Short description</label>
-                <input type="text" id="description" class="default-input-field" value="Please, enter any description"
-                    placeholder=" " />
+                <input type="text" id="description" class="default-input-field" value="Please, enter any description" placeholder=" " />
                 <div class="default-field-error  subtitle-input__field-error" style="display: none;">
                     <p class="default-field-error__text">Short description is required</p>
                 </div>
@@ -86,8 +120,7 @@
             <div class="default-input postform__avatar-input">
                 <label for="author-photo" class="input-text-oxygen">Author Photo</label>
                 <label for="author-photo" class="author-photo__input">
-                    <input type="file" id="author-photo" class="author-photo__input-field"
-                        accept="image/jpeg, image/png, image/gif" />
+                    <input type="file" id="author-photo" class="author-photo__input-field" accept="image/jpeg, image/png, image/gif" />
                     <div class="author-photo__buttons">
                         <img src="" alt="" class="author-photo__upload-image">
                         <h2 class="author-photo__text">Upload</h2>
@@ -108,8 +141,7 @@
                 <label for="big-hero-image" class="input-text-oxygen">Hero Image</label>
                 <div class="big-hero-image">
                     <label for="big-hero-image" class="big-hero-image__input">
-                        <input type="file" id="big-hero-image" class="big-hero-image__input-field"
-                            accept="image/jpeg, image/png, image/gif">
+                        <input type="file" id="big-hero-image" class="big-hero-image__input-field" accept="image/jpeg, image/png, image/gif">
                         <h2 class="big-hero-image__text">Upload</h2>
                     </label>
                 </div>
@@ -128,8 +160,7 @@
                 <label for="small-hero-image" class="input-text-oxygen">Hero image</label>
                 <div class="small-hero-image">
                     <label for="small-hero-image" class="small-hero-image__input">
-                        <input type="file" id="small-hero-image" class="small-hero-image__input-field"
-                            accept="image/jpeg, image/png, image/gif" />
+                        <input type="file" id="small-hero-image" class="small-hero-image__input-field" accept="image/jpeg, image/png, image/gif" />
                         <h2 class="small-hero-image__text">Upload</h2>
                     </label>
                 </div>
@@ -183,7 +214,7 @@
                             </div>
                             <div class="post-card__date" id="post-card-date">
                                 <p class="post-card-date__text" id="post-card-date"> 12/12/2005</p>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,14 +229,13 @@
             <div class="content-input__title">
                 <p class="content-input__title_oxygen">Post content (plain text)</p>
             </div>
-            <textarea name="" id="content" class="content-input__input-field"
-                placeholder="Type anything you want ..."></textarea>
+            <textarea name="" id="content" class="content-input__input-field" placeholder="Type anything you want ..."></textarea>
             <div class="default-field-error  content-input__field-error" style="display: none;">
                 <p class="default-field-error__text">Content is required</p>
             </div>
         </div>
     </div>
-    <script src="admin_panel.js"></script>
+    <script src="admin_panel.js" defer></script>
 </body>
 
 </html>

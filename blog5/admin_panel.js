@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const postData =
     {
-        title: '',
-        subtitle: '',
+        title: 'New Post',
+        subtitle: 'Please enter any desription',
         authorName: '',
         authorAvatar: '',
         publishDate: '',
@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const smallImageInput = document.getElementById('small-hero-image');
     const publishDateInput = document.getElementById('date');
     const contentInput = document.getElementById('content');
-
-
 
     function onTitleInputChange(event) {
         postData.title = event.target.value;
@@ -167,6 +165,16 @@ document.addEventListener("DOMContentLoaded", () => {
     initEventListener();
 
 
+    document.getElementById('logout-button').addEventListener('click', function(event){
+        event.preventDefault()
+        fetch('http://localhost:8001/api/logout')
+        .then(response => {
+            if(response.ok){
+                window.location.href = 'http://localhost:8001/home'
+            }
+        })
+    })
+
     document.getElementById('post').addEventListener('submit', function (event) {
         event.preventDefault();
         let foundError = false;
@@ -181,79 +189,78 @@ document.addEventListener("DOMContentLoaded", () => {
         const smallImageError = document.querySelector('.small-hero-image-input__field-error');
         const contentError = document.querySelector('.content-input__field-error');
         const contentTextArea = document.querySelector('.content-input__input-field')
-        
-        
-    
+
+
         if (postData.title == '') {
             foundError = true;
             titleError.style.display = 'flex';
             titleInput.style.borderBottomColor = "#E86961";
-        }else{
+        } else {
             titleError.style.display = 'none';
             titleInput.style.borderBottomColor = "#EAEAEA"
         }
-    
+
         if (postData.subtitle == '') {
             foundError = true;
             subtitleError.style.display = 'flex';
             subtitleInput.style.borderBottomColor = "#E86961"
-        }else{
+        } else {
             subtitleError.style.display = 'none';
             subtitleInput.style.borderBottomColor = "#EAEAEA"
         }
-    
+
         if (postData.authorName == '') {
             foundError = true;
             authorNameError.style.display = 'flex';
             authorNameInput.style.borderBottomColor = "#E86961"
-        }else{
+        } else {
             authorNameInput.style.borderBottomColor = "#EAEAEA"
             authorNameError.style.display = 'none';
         }
-    
+
         if (postData.authorAvatar == '') {
             foundError = true;
             authorAvatarError.style.display = 'flex';
-        }else{
+        } else {
             authorAvatarError.style.display = 'none';
         }
-    
-        if (postData.publishDate == ''){
+
+        if (postData.publishDate == '') {
             foundError = true;
             publishDateError.style.display = 'flex';
             publishDateInput.style.borderBottomColor = "#E86961"
-        }else{
+        } else {
             publishDateError.style.display = 'none';
             publishDateInput.style.borderBottomColor = "#EAEAEA"
         }
-    
-        if (postData.bigImage == ''){
+
+        if (postData.bigImage == '') {
             foundError = true;
             bigImageError.style.display = 'flex';
-        }else{
+        } else {
             bigImageError.style.display = 'none';
         }
-    
-        if (postData.smallImage == ''){
+
+        if (postData.smallImage == '') {
             foundError = true;
             smallImageError.style.display = 'flex';
-        }else{
+        } else {
             smallImageError.style.display = 'none';
         }
-    
-        if (postData.content == ''){
+
+        if (postData.content == '') {
             foundError = true;
             contentError.style.display = 'flex';
             contentTextArea.style.border = '1px solid #E86961'
-        }else{
+        } else {
             contentError.style.display = 'none';
             contentTextArea.style.border = '1px solid #EAEAEA'
         }
-    
-        if (foundError == true){
+
+        if (foundError == true) {
             globalError.style.display = 'flex';
             globalSuccess.style.display = 'none';
-        }else{
+        } else {
             globalError.style.display = 'none';
             globalSuccess.style.display = 'flex';
             console.log(postData.authorAvatar);
@@ -268,6 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 
-    
+
 })
 
